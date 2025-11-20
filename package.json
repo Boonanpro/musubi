@@ -1,0 +1,65 @@
+{
+  "name": "musubi",
+  "version": "0.1.0",
+  "description": "自律型AI開発者システム - Autonomous AI Developer System",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/index.ts",
+    "run": "tsx src/index.ts",
+    "api": "tsx src/api-server.ts",
+    "build": "tsc",
+    "start": "node dist/index.js",
+    "docker:start": "concurrently \"npm run api\" \"cd musubi-gui && npm run dev\"",
+    "docker:build": "docker-compose build",
+    "docker:up": "docker-compose up -d",
+    "docker:down": "docker-compose down",
+    "docker:logs": "docker-compose logs -f",
+    "docker:restart": "docker-compose restart",
+    "test": "vitest",
+    "type-check": "tsc --noEmit",
+    "github:create": "tsx scripts/create-github-repo.ts"
+  },
+  "keywords": [
+    "ai",
+    "autonomous",
+    "developer",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.29.0",
+    "@google/generative-ai": "^0.24.1",
+    "@notionhq/client": "^2.2.15",
+    "@supabase/supabase-js": "^2.45.4",
+    "@temporalio/activity": "^1.13.2",
+    "@temporalio/client": "^1.13.2",
+    "@temporalio/common": "^1.13.2",
+    "@temporalio/worker": "^1.13.2",
+    "@temporalio/workflow": "^1.13.2",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.5",
+    "@types/node-cron": "^3.0.11",
+    "@types/uuid": "^10.0.0",
+    "better-sqlite3": "^11.5.0",
+    "concurrently": "^9.1.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "iconv-lite": "^0.7.0",
+    "node-cron": "^4.2.1",
+    "openai": "^6.9.1",
+    "uuid": "^13.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.12",
+    "@types/node": "^22.9.0",
+    "tsx": "^4.19.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.4"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

@@ -1,0 +1,305 @@
+{
+  "name": "Musubi - 週次成長レポート",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "cronExpression",
+              "expression": "0 9 * * 1"
+            }
+          ]
+        }
+      },
+      "id": "trigger-weekly",
+      "name": "毎週月曜9時に実行",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) as total_suggestions, COUNT(CASE WHEN status = 'approved' THEN 1 END) as approved, COUNT(CASE WHEN status = 'displayed' THEN 1 END) as displayed FROM suggestions WHERE created_at > NOW() - INTERVAL '7 days'"
+      },
+      "id": "get-suggestion-stats",
+      "name": "提案統計を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 250],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT capability, success_rate, (SELECT success_rate FROM capability_profile_history WHERE capability = cp.capability AND created_at < NOW() - INTERVAL '7 days' ORDER BY created_at DESC LIMIT 1) as previous_rate FROM capability_profile cp ORDER BY success_rate ASC"
+      },
+      "id": "get-capability-changes",
+      "name": "能力変化を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 350],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT COUNT(*) as total_requirements, COUNT(CASE WHEN status = 'processed' THEN 1 END) as processed FROM requirements WHERE extracted_at > NOW() - INTERVAL '7 days'"
+      },
+      "id": "get-requirement-stats",
+      "name": "要望統計を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 450],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "claude-sonnet-4-20250514"
+            },
+            {
+              "name": "max_tokens",
+              "value": 4096
+            },
+            {
+              "name": "system",
+              "value": "あなたはMusubiというAI開発支援システムです。過去1週間の成長を分析し、レポートを生成してください。"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"user\", \"content\": \"過去1週間のMusubiの活動データを分析し、成長レポートを生成してください。\\n\\n【提案統計】\\n- 生成された提案: \" + $('get-suggestion-stats').item.json.total_suggestions + \"件\\n- 承認された提案: \" + $('get-suggestion-stats').item.json.approved + \"件\\n- 表示中の提案: \" + $('get-suggestion-stats').item.json.displayed + \"件\\n\\n【要望統計】\\n- 抽出された要望: \" + $('get-requirement-stats').item.json.total_requirements + \"件\\n- 処理済み要望: \" + $('get-requirement-stats').item.json.processed + \"件\\n\\n【能力変化】\\n\" + $('get-capability-changes').all().map(c => `- ${c.json.capability}: ${(c.json.previous_rate * 100).toFixed(0)}% → ${(c.json.success_rate * 100).toFixed(0)}% (${c.json.success_rate > c.json.previous_rate ? '↑' : '↓'}${Math.abs((c.json.success_rate - c.json.previous_rate) * 100).toFixed(0)}%)`).join('\\n') + \"\\n\\n以下の形式でJSON出力してください：\\n{\\n  \\\"summary\\\": \\\"1週間の成長サマリー（100文字程度）\\\",\\n  \\\"achievements\\\": [\\\"達成したこと1\\\", \\\"達成したこと2\\\", ...],\\n  \\\"improvements\\\": [\\\"改善された能力1\\\", \\\"改善された能力2\\\", ...],\\n  \\\"challenges\\\": [\\\"今後の課題1\\\", \\\"今後の課題2\\\", ...],\\n  \\\"nextWeekFocus\\\": \\\"来週の重点項目（50文字程度）\\\"\\n}\\n\\nJSONのみを出力してください。\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ai-generate-report",
+      "name": "AI: レポート生成",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [650, 350],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// AI応答からJSONを抽出\nconst response = $input.item.json;\nconst content = response.content[0].text;\n\nconst jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\nif (!jsonMatch) {\n  throw new Error('Failed to parse report');\n}\n\nconst report = JSON.parse(jsonMatch[0]);\n\nreturn [{\n  json: {\n    week_start: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),\n    week_end: new Date().toISOString(),\n    summary: report.summary,\n    achievements: JSON.stringify(report.achievements),\n    improvements: JSON.stringify(report.improvements),\n    challenges: JSON.stringify(report.challenges),\n    next_week_focus: report.nextWeekFocus,\n    created_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "parse-report",
+      "name": "レポートを解析",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 350]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "tableId": "growth_reports",
+        "columnsUi": {
+          "columnValues": [
+            {
+              "column": "week_start",
+              "value": "={{ $json.week_start }}"
+            },
+            {
+              "column": "week_end",
+              "value": "={{ $json.week_end }}"
+            },
+            {
+              "column": "summary",
+              "value": "={{ $json.summary }}"
+            },
+            {
+              "column": "achievements",
+              "value": "={{ $json.achievements }}"
+            },
+            {
+              "column": "improvements",
+              "value": "={{ $json.improvements }}"
+            },
+            {
+              "column": "challenges",
+              "value": "={{ $json.challenges }}"
+            },
+            {
+              "column": "next_week_focus",
+              "value": "={{ $json.next_week_focus }}"
+            },
+            {
+              "column": "created_at",
+              "value": "={{ $json.created_at }}"
+            }
+          ]
+        }
+      },
+      "id": "save-report",
+      "name": "レポートを保存",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1050, 350],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3002/api/internal/notify-growth-report",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "report_id",
+              "value": "={{ $json.id }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "notify-express",
+      "name": "Express APIに通知",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1250, 350]
+    }
+  ],
+  "connections": {
+    "trigger-weekly": {
+      "main": [
+        [
+          {
+            "node": "get-suggestion-stats",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "get-capability-changes",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "get-requirement-stats",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-suggestion-stats": {
+      "main": [
+        [
+          {
+            "node": "ai-generate-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-capability-changes": {
+      "main": [
+        [
+          {
+            "node": "ai-generate-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-requirement-stats": {
+      "main": [
+        [
+          {
+            "node": "ai-generate-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ai-generate-report": {
+      "main": [
+        [
+          {
+            "node": "parse-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parse-report": {
+      "main": [
+        [
+          {
+            "node": "save-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "save-report": {
+      "main": [
+        [
+          {
+            "node": "notify-express",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

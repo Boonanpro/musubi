@@ -1,0 +1,467 @@
+{
+  "name": "Musubi - 常時監視・自動分析",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "hours",
+              "hoursInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "trigger-schedule",
+      "name": "1時間ごとに実行",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [250, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT id, content, created_at FROM conversations WHERE created_at > NOW() - INTERVAL '1 hour' ORDER BY created_at DESC"
+      },
+      "id": "read-conversations",
+      "name": "新しい会話を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "number": [
+            {
+              "value1": "={{ $json.length }}",
+              "operation": "larger",
+              "value2": 0
+            }
+          ]
+        }
+      },
+      "id": "check-new-conversations",
+      "name": "新しい会話あり？",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Cursor会話ファイルを読み込む\nconst fs = require('fs');\nconst path = require('path');\n\nconst exportedChatsPath = 'D:/musubi/exported-chats';\nconst files = fs.readdirSync(exportedChatsPath).filter(f => f.endsWith('.md') && f !== 'README.md');\n\nconst conversations = [];\nconst requestKeywords = ['作って', '作成', '実装', '追加', 'ほしい', '機能', '改善', '開発'];\n\nfor (const file of files) {\n  const filePath = path.join(exportedChatsPath, file);\n  const content = fs.readFileSync(filePath, 'utf-8');\n  const projectName = file.replace('-chat.md', '').replace('.md', '');\n  \n  const lines = content.split('\\n').filter(line => {\n    const trimmed = line.trim();\n    return trimmed.length > 30 && \n           requestKeywords.some(kw => trimmed.includes(kw)) &&\n           !trimmed.startsWith('#') &&\n           !trimmed.startsWith('---');\n  });\n  \n  for (const line of lines) {\n    conversations.push({\n      content: line.trim(),\n      project: projectName,\n      source: 'cursor',\n      timestamp: new Date().toISOString()\n    });\n  }\n}\n\nreturn conversations.map(c => ({ json: c }));"
+      },
+      "id": "read-cursor-files",
+      "name": "Cursor会話ファイルを読み込み",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [850, 200]
+    },
+    {
+      "parameters": {
+        "batchSize": 10,
+        "options": {}
+      },
+      "id": "split-conversations",
+      "name": "10件ずつ分割",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [1050, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "claude-sonnet-4-20250514"
+            },
+            {
+              "name": "max_tokens",
+              "value": 4096
+            },
+            {
+              "name": "system",
+              "value": "あなたは要望分析の専門家です。会話から開発要望を抽出し、JSON形式で出力してください。"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"user\", \"content\": \"以下の会話リストを分析し、各会話が開発要望かどうかを判定してください。\\n\\n会話リスト:\\n\" + $json.map((item, i) => `${i+1}. ${item.content}`).join('\\n') + \"\\n\\n以下の形式でJSON配列を出力してください：\\n[{\\n  \\\"index\\\": 1,\\n  \\\"isRequirement\\\": true/false,\\n  \\\"confidence\\\": 0.0-1.0,\\n  \\\"importance\\\": 0.0-1.0,\\n  \\\"taskType\\\": \\\"feature/bugfix/improvement/research/other\\\",\\n  \\\"category\\\": \\\"ui-design/api-integration/database/etc\\\",\\n  \\\"reasoning\\\": \\\"判定理由\\\"\\n}]\\n\\nJSONのみを出力してください。\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ai-requirement-extraction",
+      "name": "AI: 要望抽出",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1250, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// AI応答からJSONを抽出\nconst response = $input.item.json;\nconst content = response.content[0].text;\n\n// JSONを抽出\nconst jsonMatch = content.match(/\\[[\\s\\S]*\\]/);\nif (!jsonMatch) {\n  throw new Error('Failed to parse AI response');\n}\n\nconst requirements = JSON.parse(jsonMatch[0]);\n\n// 元の会話データと結合\nconst conversations = $('split-conversations').all();\nconst results = requirements.map((req, i) => {\n  if (req.isRequirement && req.confidence >= 0.6) {\n    return {\n      content: conversations[i].json.content,\n      project: conversations[i].json.project,\n      source: conversations[i].json.source,\n      confidence: req.confidence,\n      importance: req.importance,\n      taskType: req.taskType,\n      category: req.category,\n      reasoning: req.reasoning,\n      extractedAt: new Date().toISOString()\n    };\n  }\n  return null;\n}).filter(r => r !== null);\n\nreturn results.map(r => ({ json: r }));"
+      },
+      "id": "parse-requirements",
+      "name": "要望を解析",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1450, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "claude-sonnet-4-20250514"
+            },
+            {
+              "name": "max_tokens",
+              "value": 4096
+            },
+            {
+              "name": "system",
+              "value": "あなたはタスク分解と能力評価の専門家です。要望を分析し、実装可能性を評価してください。"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"user\", \"content\": \"以下の要望について、実装に必要なサブタスクと能力を分析してください。\\n\\n要望: \" + $json.content + \"\\n\\n以下の形式でJSON出力してください：\\n{\\n  \\\"canImplement\\\": true/false,\\n  \\\"confidence\\\": 0.0-1.0,\\n  \\\"subtasks\\\": [{\\\"description\\\": \\\"...\\\", \\\"complexity\\\": \\\"simple/medium/complex\\\"}],\\n  \\\"missingCapabilities\\\": [\\\"capability1\\\", \\\"capability2\\\"],\\n  \\\"requiredDependencies\\\": [\\\"dependency1\\\", \\\"dependency2\\\"],\\n  \\\"estimatedEffort\\\": 1-5,\\n  \\\"reasoning\\\": \\\"評価理由\\\"\\n}\\n\\nJSONのみを出力してください。\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ai-capability-evaluation",
+      "name": "AI: 能力評価",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [1650, 200],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// AI応答からJSONを抽出\nconst response = $input.item.json;\nconst content = response.content[0].text;\n\nconst jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\nif (!jsonMatch) {\n  throw new Error('Failed to parse capability evaluation');\n}\n\nconst evaluation = JSON.parse(jsonMatch[0]);\n\n// 元の要望データと結合\nconst requirement = $('parse-requirements').item.json;\n\nreturn [{\n  json: {\n    ...requirement,\n    evaluation: evaluation,\n    evaluatedAt: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "merge-evaluation",
+      "name": "評価結果を統合",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1850, 200]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "tableId": "requirements",
+        "columnsUi": {
+          "columnValues": [
+            {
+              "column": "content",
+              "value": "={{ $json.content }}"
+            },
+            {
+              "column": "project",
+              "value": "={{ $json.project }}"
+            },
+            {
+              "column": "source",
+              "value": "={{ $json.source }}"
+            },
+            {
+              "column": "confidence",
+              "value": "={{ $json.confidence }}"
+            },
+            {
+              "column": "importance",
+              "value": "={{ $json.importance }}"
+            },
+            {
+              "column": "task_type",
+              "value": "={{ $json.taskType }}"
+            },
+            {
+              "column": "category",
+              "value": "={{ $json.category }}"
+            },
+            {
+              "column": "can_implement",
+              "value": "={{ $json.evaluation.canImplement }}"
+            },
+            {
+              "column": "evaluation_confidence",
+              "value": "={{ $json.evaluation.confidence }}"
+            },
+            {
+              "column": "missing_capabilities",
+              "value": "={{ JSON.stringify($json.evaluation.missingCapabilities) }}"
+            },
+            {
+              "column": "required_dependencies",
+              "value": "={{ JSON.stringify($json.evaluation.requiredDependencies) }}"
+            },
+            {
+              "column": "estimated_effort",
+              "value": "={{ $json.evaluation.estimatedEffort }}"
+            },
+            {
+              "column": "status",
+              "value": "pending"
+            },
+            {
+              "column": "extracted_at",
+              "value": "={{ $json.extractedAt }}"
+            }
+          ]
+        }
+      },
+      "id": "save-to-supabase",
+      "name": "Supabaseに保存",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [2050, 200],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $('split-conversations').context.noItemsLeft }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "check-batch-complete",
+      "name": "バッチ完了？",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [2250, 200]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://localhost:3002/api/internal/trigger-suggestion-generation",
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "source",
+              "value": "n8n-continuous-monitoring"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "notify-express",
+      "name": "Express APIに通知",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [2450, 100]
+    },
+    {
+      "parameters": {},
+      "id": "no-new-conversations",
+      "name": "終了（新規なし）",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [850, 400]
+    }
+  ],
+  "connections": {
+    "trigger-schedule": {
+      "main": [
+        [
+          {
+            "node": "read-conversations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read-conversations": {
+      "main": [
+        [
+          {
+            "node": "check-new-conversations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check-new-conversations": {
+      "main": [
+        [
+          {
+            "node": "read-cursor-files",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "no-new-conversations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "read-cursor-files": {
+      "main": [
+        [
+          {
+            "node": "split-conversations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "split-conversations": {
+      "main": [
+        [
+          {
+            "node": "ai-requirement-extraction",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ai-requirement-extraction": {
+      "main": [
+        [
+          {
+            "node": "parse-requirements",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parse-requirements": {
+      "main": [
+        [
+          {
+            "node": "ai-capability-evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ai-capability-evaluation": {
+      "main": [
+        [
+          {
+            "node": "merge-evaluation",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "merge-evaluation": {
+      "main": [
+        [
+          {
+            "node": "save-to-supabase",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "save-to-supabase": {
+      "main": [
+        [
+          {
+            "node": "check-batch-complete",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "check-batch-complete": {
+      "main": [
+        [
+          {
+            "node": "notify-express",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "split-conversations",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

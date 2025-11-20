@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  musubi:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: musubi
+    ports:
+      - "3001:3001"  # GUI
+      - "3002:3002"  # API
+      - "3003:3003"  # Preview
+      - "3004:3000"  # WebSocket Server (Mapped to 3004)
+    volumes:
+      # データ永続化
+      - musubi-data:/app/data
+      - musubi-projects:/app/public/previews
+      - musubi-workspace:/app/workspace
+      # ログ永続化
+      - musubi-logs:/app/logs
+    environment:
+      - NODE_ENV=production
+      - MUSUBI_DOCKER=true
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GOOGLE_API_KEY=${GOOGLE_API_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+    restart: unless-stopped
+    # ヘルスチェック
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3002/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  musubi-data:
+  musubi-projects:
+  musubi-workspace:
+  musubi-logs:
+

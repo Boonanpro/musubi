@@ -1,0 +1,817 @@
+{
+  "totalProcessed": 100,
+  "classified": 2,
+  "unclassified": 98,
+  "accuracy": 0.02,
+  "errorRate": 0.98,
+  "results": [
+    {
+      "conversationId": "1762957911919-lh7dxz72j",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911919-s63rtfv62",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-ln0m2gm42",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-goi0lkjo1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-0dcvb6v9j",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-jz85b4ft1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-udhingop8",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-xuwu910hs",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-zts2oev0g",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-vonw4l6ei",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-oocso7q5p",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-lrsa8xmxc",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-acdcegpup",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-e3u4gnbpj",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-vnt4g8w9b",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-brvx6avhp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-kelumg70u",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-nbf8hmgxb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-benv5nps3",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-2jo9s6wpd",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-jza4r5lol",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-d58nasii6",
+      "originalProject": "uncategorized",
+      "predictedProject": "jarvis",
+      "confidence": 0.25,
+      "reason": "Matched keywords: assistant",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-bj6js8hu0",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-88891r9ft",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-wg4yt7sr9",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-9l6lolegz",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-qqctxc3qr",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-c5a1bffym",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-25ba6woal",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-er32qp1yb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-zvmuxsity",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-zobs0qsik",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4eeydt6s9",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-7dpv6bxr9",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-afidkiycl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-xy8wwm40c",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-idatabn11",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-y27vi0eem",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-5k6sotvd2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-5jnef99a6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-3kwh8n04g",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-3zvgj4qd3",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-3vd14sq9o",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-6kxccqmrq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-8e5f2nfas",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4gtywgnbi",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-319tkdu3g",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-oy9oyzos0",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-udfje1caa",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-z5vj37df1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-cziz33yyx",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-xwp2e7lum",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-htclg0hx6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-6kr4sn4eq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4hqnokzmp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-bz7cdq7oy",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-remkvy5r7",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-1irss95tn",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4afbp27le",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-oczenmxo1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-d64vudadg",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-ogp5m5its",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-6wcsz9k97",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-a595vaihy",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-h1czaxvby",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-fjrt3mezu",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-etgpofxkc",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-11x88eqg3",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-d8x8rq43e",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-72ml2v938",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-v03fys8ke",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-grf1coo72",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-wjcgndplw",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-1rntktv61",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-k71p82dop",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-3nmg4a4qs",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-mgb9xwvqt",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-f9b14buhl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-0apog54aq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4uy5sc8i0",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-86id44nic",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-fmup14apo",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-jua190fmb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-1kz6gu0ra",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-2bvr4p7jz",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-sdwv4fob1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-qdsuffksb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-qu44yguw8",
+      "originalProject": "uncategorized",
+      "predictedProject": "jarvis",
+      "confidence": 0.25,
+      "reason": "Matched keywords: assistant",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-u88k9uls6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-lpfru8bsh",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-5wb9tn1en",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-v8f8hj76i",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-k0k9k8vzl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-xyoqyok5g",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-748gemfac",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-4ufaqkh59",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-elevwkrf2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-1v63u9mvc",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911920-vzm5uuqob",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    },
+    {
+      "conversationId": "1762957911921-8nkwt8d36",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found",
+      "timestamp": "2025-11-12T14:31:52.108Z"
+    }
+  ],
+  "summary": {
+    "byProject": {
+      "uncategorized": 98,
+      "jarvis": 2
+    },
+    "avgConfidence": 0.005,
+    "lowConfidenceCount": 100
+  }
+}

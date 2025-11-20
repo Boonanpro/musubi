@@ -1,0 +1,333 @@
+import { Router } from 'express';
+import { anthropicService } from '../../integrations/anthropic.js';
+import { supabaseService } from '../../integrations/supabase.js';
+import { logger } from '../../utils/logger.js';
+
+const router = Router();
+
+/**
+ * 📋 プロジェクト一覧を取得
+ */
+router.get('/projects', async (_req, res) => {
+  try {
+    await supabaseService.connect();
+    const { data, error } = await supabaseService.client
+      .from('musubi_projects')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+
+    res.json({
+      success: true,
+      projects: data || [],
+    });
+  } catch (error) {
+    logger.error('[Musubi Projects] Failed to fetch projects:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+/**
+ * 🚀 新規プロジェクトを作成（ストリーミング）
+ */
+router.post('/create-project', async (req, res) => {
+  try {
+    const { description } = req.body;
+
+    if (!description) {
+      return res.status(400).json({ success: false, error: 'Description is required' });
+    }
+
+    logger.info(`[Musubi Projects] Creating project: ${description}`);
+
+    // SSE（Server-Sent Events）を設定
+    res.setHeader('Content-Type', 'text/event-stream');
+    res.setHeader('Cache-Control', 'no-cache');
+    res.setHeader('Connection', 'keep-alive');
+
+    const sendStep = (step: string, message: string) => {
+      res.write(`data: ${JSON.stringify({ step, message })}\n\n`);
+    };
+
+    // 1. Musubiの現在の能力を取得
+    await supabaseService.connect();
+    const { data: capabilities } = await supabaseService.client
+      .from('musubi_capabilities')
+      .select('*');
+
+    const capabilityList = capabilities?.map(c => c.name).join(', ') || 'HTML, CSS, JavaScript (基本)';
+
+    // 2. プロジェクトコードを生成
+    await anthropicService.connect();
+    const codePrompt = `
+あなたはMusubi AI開発者です。以下の要望に基づいてWebアプリケーションを作成してください。
+
+【要望】
+${description}
+
+【Musubiの現在の能力】
+${capabilityList}
+
+【制約】
+- 単一のHTMLファイルで完結させてください
+- CSS、JavaScriptはインラインで記述
+- 外部ライブラリは使用しない（または CDN経由で読み込む）
+- 動作するプロトタイプを作成
+
+【出力形式】
+HTMLコードのみを出力してください。説明は不要です。
+`;
+
+    const code = await anthropicService.chat(
+      'あなたはWeb開発の専門家です。',
+      codePrompt,
+      []
+    );
+
+    // HTMLコードを抽出
+    const htmlMatch = code.match(/```html\n([\s\S]*?)\n```/) || code.match(/<html[\s\S]*<\/html>/i);
+    const finalCode = htmlMatch ? (htmlMatch[1] || htmlMatch[0]) : code;
+
+    // 3. プロジェクト名を生成
+    const namePrompt = `以下の要望から、簡潔なプロジェクト名（20文字以内）を生成してください：\n${description}`;
+    const nameResponse = await anthropicService.chat('', namePrompt, []);
+    const projectName = nameResponse.trim().replace(/['"]/g, '').substring(0, 50);
+
+    // 4. Supabaseに保存
+    const projectId = `proj-${Date.now()}`;
+    const { error } = await supabaseService.client
+      .from('musubi_projects')
+      .insert({
+        id: projectId,
+        name: projectName,
+        description,
+        status: 'completed',
+        code: finalCode,
+        preview_url: `http://localhost:3003/preview/${projectId}`,
+      });
+
+    if (error) throw error;
+
+    // 5. プレビューファイルを作成
+    const fs = await import('fs');
+    const path = await import('path');
+    const previewDir = path.join(process.cwd(), 'public', 'previews');
+    if (!fs.existsSync(previewDir)) {
+      fs.mkdirSync(previewDir, { recursive: true });
+    }
+    fs.writeFileSync(path.join(previewDir, `${projectId}.html`), finalCode);
+
+    // 6. レスポンス
+    const { data: project } = await supabaseService.client
+      .from('musubi_projects')
+      .select('*')
+      .eq('id', projectId)
+      .single();
+
+    res.json({
+      success: true,
+      project,
+    });
+
+  } catch (error) {
+    logger.error('[Musubi Projects] Error creating project:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+/**
+ * 📊 プロジェクトを評価 → 改善提案を生成
+ */
+router.post('/evaluate-project', async (req, res) => {
+  try {
+    const { projectId, score, comments } = req.body;
+
+    if (!projectId || score === undefined) {
+      return res.status(400).json({ success: false, error: 'Project ID and score are required' });
+    }
+
+    logger.info(`[Musubi Projects] Evaluating project ${projectId}: ${score}/100`);
+
+    // 1. プロジェクトを取得
+    await supabaseService.connect();
+    const { data: project } = await supabaseService.client
+      .from('musubi_projects')
+      .select('*')
+      .eq('id', projectId)
+      .single();
+
+    if (!project) {
+      return res.status(404).json({ success: false, error: 'Project not found' });
+    }
+
+    // 2. 評価を保存
+    await supabaseService.client
+      .from('musubi_projects')
+      .update({
+        status: 'evaluated',
+        evaluation_score: score,
+        evaluation_comments: comments,
+      })
+      .eq('id', projectId);
+
+    // 3. 改善提案を生成（スコアが80未満の場合）
+    let suggestions = [];
+    if (score < 80) {
+      await anthropicService.connect();
+      const analysisPrompt = `
+あなたはMusubiの能力分析エージェントです。
+
+【プロジェクト】
+${project.description}
+
+【評価】
+スコア: ${score}/100
+コメント: ${comments || 'なし'}
+
+【タスク】
+この評価を達成するために、Musubiに何の能力が足りないか分析してください。
+
+【出力形式】
+JSON配列で返してください：
+[
+  {
+    "missing_capability": "必要な能力（例: React Native開発環境）",
+    "具体的な手順": "ユーザーが実行すべき具体的な手順を詳細に記述。例：\n1. n8nで新規ワークフローを作成\n2. 「HTTP Request」ノードを追加\n3. 以下のJSONを設定に貼り付け",
+    "json_template": "実際に貼り付けるJSONコード（あれば）"
+  }
+]
+
+【重要】
+- 「具体的な手順」は、技術に詳しくない人でも実行できるレベルで詳細に
+- ファイルパス、コマンド、設定値を具体的に記載
+- 曖昧な表現は避ける
+`;
+
+      const analysisResponse = await anthropicService.chat(
+        'あなたは能力分析の専門家です。',
+        analysisPrompt,
+        []
+      );
+
+      const jsonMatch = analysisResponse.match(/\[[\s\S]*\]/);
+      if (jsonMatch) {
+        suggestions = JSON.parse(jsonMatch[0]);
+      }
+    }
+
+    res.json({
+      success: true,
+      suggestions,
+    });
+
+  } catch (error) {
+    logger.error('[Musubi Projects] Evaluation error:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+/**
+ * 🔄 プロジェクトを再開発（能力付与後）
+ */
+router.post('/retry-project', async (req, res) => {
+  try {
+    const { projectId } = req.body;
+
+    if (!projectId) {
+      return res.status(400).json({ success: false, error: 'Project ID is required' });
+    }
+
+    logger.info(`[Musubi Projects] Retrying project ${projectId}`);
+
+    // プロジェクトを取得して再生成
+    await supabaseService.connect();
+    const { data: project } = await supabaseService.client
+      .from('musubi_projects')
+      .select('*')
+      .eq('id', projectId)
+      .single();
+
+    if (!project) {
+      return res.status(404).json({ success: false, error: 'Project not found' });
+    }
+
+    // 新しいバージョンとして再作成
+    const newProjectId = `${projectId}-v${Date.now()}`;
+    
+    // Musubiの現在の能力を取得（更新された能力を含む）
+    const { data: capabilities } = await supabaseService.client
+      .from('musubi_capabilities')
+      .select('*');
+
+    const capabilityList = capabilities?.map(c => c.name).join(', ') || 'HTML, CSS, JavaScript (基本)';
+
+    // コード再生成
+    await anthropicService.connect();
+    const codePrompt = `
+あなたはMusubi AI開発者です。以下の要望に基づいてWebアプリケーションを作成してください。
+
+【要望】
+${project.description}
+
+【前回の評価】
+スコア: ${project.evaluation_score}/100
+コメント: ${project.evaluation_comments}
+
+【Musubiの現在の能力（更新済み）】
+${capabilityList}
+
+【制約】
+- 単一のHTMLファイルで完結させてください
+- 前回の評価を反映して改善してください
+- 動作するプロトタイプを作成
+
+【出力形式】
+HTMLコードのみを出力してください。
+`;
+
+    const code = await anthropicService.chat(
+      'あなたはWeb開発の専門家です。',
+      codePrompt,
+      []
+    );
+
+    const htmlMatch = code.match(/```html\n([\s\S]*?)\n```/) || code.match(/<html[\s\S]*<\/html>/i);
+    const finalCode = htmlMatch ? (htmlMatch[1] || htmlMatch[0]) : code;
+
+    // 既存プロジェクトを更新
+    await supabaseService.client
+      .from('musubi_projects')
+      .update({
+        code: finalCode,
+        status: 'completed',
+        evaluation_score: null,
+        evaluation_comments: null,
+      })
+      .eq('id', projectId);
+
+    // プレビューファイルを更新
+    const fs = await import('fs');
+    const path = await import('path');
+    const previewDir = path.join(process.cwd(), 'public', 'previews');
+    fs.writeFileSync(path.join(previewDir, `${projectId}.html`), finalCode);
+
+    const { data: updatedProject } = await supabaseService.client
+      .from('musubi_projects')
+      .select('*')
+      .eq('id', projectId)
+      .single();
+
+    res.json({
+      success: true,
+      project: updatedProject,
+    });
+
+  } catch (error) {
+    logger.error('[Musubi Projects] Retry error:', error);
+    res.status(500).json({ success: false, error: 'Internal server error' });
+  }
+});
+
+export default router;
+

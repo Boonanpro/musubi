@@ -1,0 +1,126 @@
+{
+  "capabilities": {
+    "react-components": {
+      "name": "React Component Creation",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "typescript": {
+      "name": "TypeScript Development",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "ui-design": {
+      "name": "UI/UX Design",
+      "level": "none",
+      "successCount": 0,
+      "failureCount": 4,
+      "examples": []
+    },
+    "api-integration": {
+      "name": "API Integration",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "file-operations": {
+      "name": "File Operations",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "state-management": {
+      "name": "State Management",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "browser-apis": {
+      "name": "Browser APIs",
+      "level": "intermediate",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "real-time-search": {
+      "name": "Real-time Web Search",
+      "level": "none",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "database-operations": {
+      "name": "Database Operations",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    },
+    "backend-development": {
+      "name": "Backend Development",
+      "level": "advanced",
+      "successCount": 0,
+      "failureCount": 0,
+      "examples": []
+    }
+  },
+  "availableDependencies": {
+    "npm": [
+      "react",
+      "react-dom",
+      "next",
+      "typescript",
+      "@supabase/supabase-js"
+    ],
+    "apis": [
+      "anthropic",
+      "supabase"
+    ],
+    "libraries": [
+      "fetch",
+      "localStorage",
+      "WebSockets"
+    ]
+  },
+  "successPatterns": [],
+  "failurePatterns": [
+    {
+      "pattern": "ui-design",
+      "frequency": 4,
+      "examples": [
+        "YoshikawaCompanyWebsite",
+        "YoshikawaCompanyWebsite",
+        "YoshikawaCompanyWebsite"
+      ],
+      "rootCauses": [
+        "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。"
+      ],
+      "suggestedFix": "詳細なサンプルコードとドキュメントが必要"
+    },
+    {
+      "pattern": "unknown",
+      "frequency": 2,
+      "examples": [
+        "Miyazaki AI",
+        "AiConnect"
+      ],
+      "rootCauses": [
+        "＃良かった点\n本当は映像生成できない時点で0点だけど加筆エリアでちゃんと書けたり加筆をクリア機能でちゃんと消せるのには感動したから20点あげる。\n\n＃ダメな点\n・映像生成できないこと。そもそも収録開始を押しても「画面収録の開始に失敗しました: Failed to execute 'getDisplayMedia' on 'MediaDevices': Access to the feature \"display-capture\" is disallowed by permissions policy.」と表示されて録画できない。\n・「使い方」に書いてある以下のような文章からこのツールの目的を全く理解できてないと感じた。\n「💡 使い方\n「収録開始」で画面選択\n上のキャンバスでマウス/ペンタブで加筆\n「収録停止」で終了\nプレビューを確認してダウンロード」なぜならこのツールは収録した映像をプロンプトとして映像を生成するためのものだから。この説明ではこのツールは画面を収録しそれをダウンロードするためのもののように見えるし、実際に映像生成機能が無いので、どんなツールを作ってほしいか意味わかってないように感じた。",
+        "何もプレビューに表示されてないよ？プログラミングした？"
+      ],
+      "suggestedFix": "詳細なサンプルコードとドキュメントが必要"
+    }
+  ],
+  "totalImplementations": 8,
+  "successfulImplementations": 1,
+  "lastUpdated": "2025-11-16T11:30:07.668Z"
+}

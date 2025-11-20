@@ -1,0 +1,818 @@
+{
+  "totalProcessed": 100,
+  "classified": 11,
+  "unclassified": 89,
+  "accuracy": 0.11,
+  "errorRate": 0.89,
+  "results": [
+    {
+      "conversationId": "1763203501268-6iy8aax3e",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "会話内容が空のため、プロジェクトを特定することができません (AI-powered)",
+      "timestamp": "2025-11-15T10:45:04.486Z"
+    },
+    {
+      "conversationId": "1763203501268-djo4oacse",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が日付のみで、プロジェクトを特定できる具体的な情報や文脈が不足しているため (AI-powered)",
+      "timestamp": "2025-11-15T10:45:08.432Z"
+    },
+    {
+      "conversationId": "1763203501268-ec7nsp2yu",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:45:12.289Z"
+    },
+    {
+      "conversationId": "1763203501268-q25lvk00i",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「【Cursor会話履歴 - 自動同期】」というヘッダーのみで、具体的な技術的内容や機能に関する情報が含まれていないため、特定のプロジェクトに分類できません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:45:16.795Z"
+    },
+    {
+      "conversationId": "1763203501268-1s6odu0nl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が提供されておらず、同期日時のみの情報では特定のプロジェクトを判定できないため (AI-powered)",
+      "timestamp": "2025-11-15T10:45:21.560Z"
+    },
+    {
+      "conversationId": "1763203501268-2eql47kto",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「新規メッセージ: 1159件」という情報のみでは、jarvis、checkie、musubiのいずれのプロジェクトに関連するかを特定する具体的な手がかりがないため (AI-powered)",
+      "timestamp": "2025-11-15T10:45:26.175Z"
+    },
+    {
+      "conversationId": "1763203501268-gprjp8non",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.1,
+      "reason": "会話の具体的な内容が提供されていないため、プロジェクトの特定が不可能 (AI-powered)",
+      "timestamp": "2025-11-15T10:45:32.124Z"
+    },
+    {
+      "conversationId": "1763203501268-195hvyjda",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:45:35.916Z"
+    },
+    {
+      "conversationId": "1763203501268-pjop38z85",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が存在しないため、プロジェクトを特定できません (AI-powered)",
+      "timestamp": "2025-11-15T10:45:39.763Z"
+    },
+    {
+      "conversationId": "1763203501268-my9slxgrp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "ユーザーは分析対象となる具体的な会話内容を提供していない。質問はプロジェクト判定の手順説明のみで、特定のプロジェクトに関連する技術的な内容や機能について言及していないため。 (AI-powered)",
+      "timestamp": "2025-11-15T10:45:44.658Z"
+    },
+    {
+      "conversationId": "1763203501268-x52dc3ilb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が日時情報のみで、プロジェクトを特定できる具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:45:48.859Z"
+    },
+    {
+      "conversationId": "1763203501268-wdhsklywb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「＃結論」という見出しのみで、具体的な内容や文脈が不明なため、どのプロジェクトにも分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:45:53.116Z"
+    },
+    {
+      "conversationId": "1763203501268-oioerhjps",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "個人向け財務諸表自動生成サービスという新しいビジネスアイデアの提案で、既存のプロジェクト（jarvis、checkie、musubi）のいずれにも明確に該当しない独立した新規プロジェクト案件と判断される (AI-powered)",
+      "timestamp": "2025-11-15T10:45:58.667Z"
+    },
+    {
+      "conversationId": "1763203501268-g836tp70t",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「＃詳細」のみで、具体的な情報が不足しているため、どのプロジェクトに分類すべきか判断できません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:46:02.506Z"
+    },
+    {
+      "conversationId": "1763203501268-k2rtrhclm",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「以下の2つの要望を満たしてほしいです。」で終わっており、具体的な要望内容が示されていないため、どのプロジェクトに該当するか判定できません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:46:06.861Z"
+    },
+    {
+      "conversationId": "1763203501268-jfpracibh",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が一般的な質問の促しのみで、特定のプロジェクトに関する具体的な情報や機能について言及されていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:46:10.964Z"
+    },
+    {
+      "conversationId": "1763203501268-ryr75ko75",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が「【要望】」という見出しのみで、具体的な内容が記載されていないため、どのプロジェクトにも分類できません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:46:15.198Z"
+    },
+    {
+      "conversationId": "1763203501268-qsna1gthd",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "「目的を反映したUIや使い勝手」という内容は汎用的すぎて、特定のプロジェクトを判定するには情報が不足している。どのプロジェクトにも該当する可能性があるため、uncategorizedが最適 (AI-powered)",
+      "timestamp": "2025-11-15T10:46:19.574Z"
+    },
+    {
+      "conversationId": "1763203501268-e4b414iis",
+      "originalProject": "uncategorized",
+      "predictedProject": "jarvis",
+      "confidence": 0.85,
+      "reason": "個人の資産管理と意思決定支援、人生目標達成の効率化を目的としたパーソナルツールの開発について言及しており、AI アシスタント的な総合的サポートシステムの性質を持つjarvისプロジェクトに最も適合する (AI-powered)",
+      "timestamp": "2025-11-15T10:46:25.382Z"
+    },
+    {
+      "conversationId": "1763203501268-lju2b9qfa",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "資産状況や推移の可視化に関する要求ですが、プロジェクト名だけでは具体的な機能や目的が不明なため、どのプロジェクトに該当するかを特定できません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:46:29.684Z"
+    },
+    {
+      "conversationId": "1763203501268-sihup9oa8",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:46:33.516Z"
+    },
+    {
+      "conversationId": "1763203501268-ep6frfbug",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:46:37.856Z"
+    },
+    {
+      "conversationId": "1763203501268-w33swlu41",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.95,
+      "reason": "会話内容が日時情報のみで、プロジェクトを特定できる具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:46:42.138Z"
+    },
+    {
+      "conversationId": "1763203501268-bjejzcxqe",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.95,
+      "reason": "会話内容が「素晴らしいアイデアですね！」という一般的な感想のみで、特定のプロジェクトに関連する具体的な情報や技術的な内容が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:46:46.590Z"
+    },
+    {
+      "conversationId": "1763203501268-wlbfxp1i6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "個人向け財務諸表自動生成サービスという新しいサービス概念の説明であり、既存のプロジェクト（jarvis、checkie、musubi）のいずれにも明確に該当しない内容のため (AI-powered)",
+      "timestamp": "2025-11-15T10:46:51.137Z"
+    },
+    {
+      "conversationId": "1763203501268-ac8yq2e41",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトを判定することができません (AI-powered)",
+      "timestamp": "2025-11-15T10:46:55.036Z"
+    },
+    {
+      "conversationId": "1763203501268-b1f6wcl95",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「## 1. サービス概要」という見出しのみで、具体的な機能や内容に関する情報が不足しており、jarvis、checkie、musubiのいずれのプロジェクトにも分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:46:59.781Z"
+    },
+    {
+      "conversationId": "1763203501268-i4uel5n46",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「目的:」のみで具体的な情報が提供されていないため、どのプロジェクトにも分類できません (AI-powered)",
+      "timestamp": "2025-11-15T10:47:04.003Z"
+    },
+    {
+      "conversationId": "1763203501268-m5rmdug5b",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "パーソナル財務ダッシュボードという新しいプロジェクトの提案内容であり、既存の3つのプロジェクト（jarvis、checkie、musubi）のいずれにも明確に該当しない個人資産管理システムについて述べているため (AI-powered)",
+      "timestamp": "2025-11-15T10:47:08.632Z"
+    },
+    {
+      "conversationId": "1763203501268-78tdh8fg9",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「- **主な機能**:」という不完全な情報のみで、具体的な機能や要件について言及されていないため、どのプロジェクトに該当するかを判定することができません。 (AI-powered)",
+      "timestamp": "2025-11-15T10:47:13.069Z"
+    },
+    {
+      "conversationId": "1763203501268-8i9el2dty",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.85,
+      "reason": "銀行口座やクレジットカードの情報を自動取得するAPI連携機能は、家計管理や資産管理を行うcheckieプロジェクトの典型的な機能と考えられるため (AI-powered)",
+      "timestamp": "2025-11-15T10:47:17.769Z"
+    },
+    {
+      "conversationId": "1763203501268-52lycyy48",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "BS・PLの自動生成は会計・財務システムに関する内容で、提供されたプロジェクト候補（jarvis、checkie、musubi）のいずれとも明確な関連性が判断できないため、uncategorizedが最も適切 (AI-powered)",
+      "timestamp": "2025-11-15T10:47:22.700Z"
+    },
+    {
+      "conversationId": "1763203501268-2zo3ldib4",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.85,
+      "reason": "資産推移・収支推移の可視化機能は、家計簿や財務管理アプリの典型的な機能であり、checkieプロジェクトに該当する可能性が高い (AI-powered)",
+      "timestamp": "2025-11-15T10:47:26.947Z"
+    },
+    {
+      "conversationId": "1763203501268-2zehtl74e",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.85,
+      "reason": "貯蓄目標や支出超過アラートなどの機能は家計管理・資産管理アプリの典型的な機能であり、checkieプロジェクトに最も適合する内容です (AI-powered)",
+      "timestamp": "2025-11-15T10:47:31.864Z"
+    },
+    {
+      "conversationId": "1763203501268-1vxg3qxlp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "スマホ・PC両対応のUIという一般的な技術要件のみで、具体的なプロジェクトの特徴や機能が示されていないため、特定のプロジェクトに分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:47:37.077Z"
+    },
+    {
+      "conversationId": "1763203501268-8tur1ogsa",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "会話内容が提供されていないため、プロジェクトを判定することができません (AI-powered)",
+      "timestamp": "2025-11-15T10:47:40.735Z"
+    },
+    {
+      "conversationId": "1763203501268-eitfa75gp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.1,
+      "reason": "会話内容が不完全で、「## 2. 必要な追加情報（ご回答ください）」という見出しのみのため、どのプロジェクトに関連するかを判定する情報が不足している (AI-powered)",
+      "timestamp": "2025-11-15T10:47:45.303Z"
+    },
+    {
+      "conversationId": "1763203501268-sr9as7kyu",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「対象とする金融機関・カード会社」という見出しのみで、具体的な内容や文脈が不足しており、どのプロジェクトに該当するか判定できない (AI-powered)",
+      "timestamp": "2025-11-15T10:47:50.283Z"
+    },
+    {
+      "conversationId": "1763203501268-9rbbwv7ft",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "金融機関の例示のみで、具体的なプロジェクトの文脈や機能に関する言及がないため、特定のプロジェクトに分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:47:54.580Z"
+    },
+    {
+      "conversationId": "1763203501268-am9yqj095",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「どのサービスと連携したいですか？」という一般的な質問のみで、特定のプロジェクトに関する具体的な情報や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:47:58.873Z"
+    },
+    {
+      "conversationId": "1763203501268-ghhlm6s9p",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「最初のリリース範囲」という一般的な項目のみで、特定のプロジェクト（jarvis、checkie、musubi）に関連する具体的な技術要素や機能の言及がないため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:03.631Z"
+    },
+    {
+      "conversationId": "1763203501268-lhkhvmb97",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "銀行口座、クレジットカード、電子マネー、証券口座などの金融アカウント管理に関する会話内容で、家計簿や資産管理アプリ「checkie」の機能検討と推測される (AI-powered)",
+      "timestamp": "2025-11-15T10:48:08.554Z"
+    },
+    {
+      "conversationId": "1763203501268-p59uxsrkq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「イラストやグラフのイメージ」という非常に短い文章では、特定のプロジェクトに関連する具体的な情報や文脈が不足しており、jarvis、checkie、musubiのいずれのプロジェクトにも明確に分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:48:13.731Z"
+    },
+    {
+      "conversationId": "1763203501268-uljtk37r6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "雰囲気の好みについての一般的な質問例であり、特定のプロジェクト（jarvis、checkie、musubi）に関連する具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:18.620Z"
+    },
+    {
+      "conversationId": "1763203501268-fbw8xcwcs",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "プログラミング経験や技術スタックに関する一般的な質問項目のみで、具体的なプロジェクトに関連する内容や要求が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:23.049Z"
+    },
+    {
+      "conversationId": "1763203501268-v7vw3kip5",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "これは技術スタックの説明例であり、特定のプロジェクトに関する実際の会話内容ではないため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:27.426Z"
+    },
+    {
+      "conversationId": "1763203501268-kumo8wvl5",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:48:31.485Z"
+    },
+    {
+      "conversationId": "1763203501268-a214svzlf",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「プロトタイプ設計案」という抽象的な見出しのみで、具体的なプロジェクト名やプロジェクト特有の機能・内容に関する言及が一切ないため、どのプロジェクトにも分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:48:36.677Z"
+    },
+    {
+      "conversationId": "1763203501268-ehd0mpazl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「フロントエンド」という単語のみで、具体的なプロジェクトを特定できる情報が不足しているため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:41.069Z"
+    },
+    {
+      "conversationId": "1763203501268-02wbv204a",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「ダッシュボード画面」という一般的な用語のみで、特定のプロジェクトを識別できる具体的な機能や特徴が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:48:45.629Z"
+    },
+    {
+      "conversationId": "1763203501268-un8kzfyfu",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "資産総額・負債総額・純資産という財務指標の表示に関する要求は、家計管理や財務チェック機能を提供するcheckieプロジェクトに最も適合します (AI-powered)",
+      "timestamp": "2025-11-15T10:48:50.371Z"
+    },
+    {
+      "conversationId": "1763203501268-y6msvuuih",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "円グラフ・棒グラフによる資産配分や収支推移の可視化は、家計管理や資産管理アプリの典型的な機能であり、checkieプロジェクトに最も適合する (AI-powered)",
+      "timestamp": "2025-11-15T10:48:55.707Z"
+    },
+    {
+      "conversationId": "1763203501268-u52399uo8",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "「目標進捗バーやイラスト」という断片的な情報のみで、具体的なプロジェクトの特徴や機能が明確でないため、既存のプロジェクト（jarvis、checkie、musubi）のいずれにも明確に分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:49:00.658Z"
+    },
+    {
+      "conversationId": "1763203501268-0le4p29s6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.3,
+      "reason": "「明細画面」という単語のみでは、どのプロジェクトの機能を指しているか特定できない。明細画面は複数のプロジェクトに共通して存在する可能性が高い機能のため、追加の文脈情報が必要 (AI-powered)",
+      "timestamp": "2025-11-15T10:49:05.685Z"
+    },
+    {
+      "conversationId": "1763203501268-3x25y65ls",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "取引履歴のリスト表示は家計管理や支出チェック機能に関連する内容で、checkieプロジェクトの主要機能と合致する (AI-powered)",
+      "timestamp": "2025-11-15T10:49:10.595Z"
+    },
+    {
+      "conversationId": "1763203501268-a1bz1f3of",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.9,
+      "reason": "支出割合グラフは家計管理や支出分析に関する機能であり、checkieプロジェクトの主要機能である支出管理・分析機能に直接関連するため (AI-powered)",
+      "timestamp": "2025-11-15T10:49:15.565Z"
+    },
+    {
+      "conversationId": "1763203501268-8lf2rg79w",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「バックエンド」という単語のみで、特定のプロジェクトを識別できる具体的な情報が不足している (AI-powered)",
+      "timestamp": "2025-11-15T10:49:20.387Z"
+    },
+    {
+      "conversationId": "1763203501268-hx5c8hfy3",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "金融機関APIからのデータ取得は、家計管理や支出チェック機能を持つcheckieプロジェクトに最も関連性が高い。Moneytree APIやOpen Banking APIは個人の銀行口座データや取引履歴を扱うため、財務管理アプリケーションの典型的な機能と一致する。 (AI-powered)",
+      "timestamp": "2025-11-15T10:49:25.932Z"
+    },
+    {
+      "conversationId": "1763203501268-rrm0v6v1y",
+      "originalProject": "uncategorized",
+      "predictedProject": "checkie",
+      "confidence": 0.8,
+      "reason": "「データを自動で会計仕訳に変換」という内容から、会計・経理業務の自動化に関するプロジェクトと判断。checkieが会計関連のプロジェクトである可能性が高い。 (AI-powered)",
+      "timestamp": "2025-11-15T10:49:30.943Z"
+    },
+    {
+      "conversationId": "1763203501268-6yg4e8ple",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "BS/PL自動生成ロジックは会計・財務関連の機能ですが、提供されたプロジェクト候補（jarvis、checkie、musubi）との明確な関連性が判断できないため、uncategorizedが最も適切です (AI-powered)",
+      "timestamp": "2025-11-15T10:49:36.208Z"
+    },
+    {
+      "conversationId": "1763203501268-p7qsxjf0e",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:49:39.997Z"
+    },
+    {
+      "conversationId": "1763203501268-6s1kv4yft",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「実装の流れ（例）」という見出しのみで、具体的な実装内容やプロジェクト固有の情報が含まれていないため、どのプロジェクトにも特定できない (AI-powered)",
+      "timestamp": "2025-11-15T10:49:44.545Z"
+    },
+    {
+      "conversationId": "1763203501268-vr5anbexq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "UIプロトタイプ作成は一般的なデザイン作業であり、特定のプロジェクト（jarvis、checkie、musubi）に関連する具体的な情報や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:49:49.054Z"
+    },
+    {
+      "conversationId": "1763203501268-ikylpft4c",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "フロントエンド実装とダッシュボード作成という技術的な内容のみで、具体的なプロジェクト名や機能の詳細が含まれていないため、どのプロジェクトに該当するか特定できない (AI-powered)",
+      "timestamp": "2025-11-15T10:49:53.681Z"
+    },
+    {
+      "conversationId": "1763203501268-4xh34rleu",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "BS/PL（貸借対照表・損益計算書）の自動生成とグラフ表示は財務・会計システムの機能を示しているが、提示された3つのプロジェクト（jarvis、checkie、musubi）との明確な関連性が判断できないため (AI-powered)",
+      "timestamp": "2025-11-15T10:49:58.425Z"
+    },
+    {
+      "conversationId": "1763203501268-n63qehcnw",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "金融API連携のPoCという内容は、jarvis、checkie、musubiのいずれの特定プロジェクトにも明確に該当せず、汎用的な技術検証案件として分類される (AI-powered)",
+      "timestamp": "2025-11-15T10:50:02.897Z"
+    },
+    {
+      "conversationId": "1763203501268-crr8m19k5",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "「本番データでの自動反映」という一般的な技術用語のみで、特定のプロジェクトを識別できる固有の情報や機能名が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:50:07.377Z"
+    },
+    {
+      "conversationId": "1763203501268-367jxbehk",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトを特定できません (AI-powered)",
+      "timestamp": "2025-11-15T10:50:11.181Z"
+    },
+    {
+      "conversationId": "1763203501268-spjogqggl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「## 5. まずは…」という断片的な情報のみで、プロジェクト特有の機能や用途を示すキーワードが含まれていないため、分類不可能 (AI-powered)",
+      "timestamp": "2025-11-15T10:50:15.924Z"
+    },
+    {
+      "conversationId": "1763203501268-hgnmuscc2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "技術スタックやプラットフォームに関する一般的な質問で、特定のプロジェクトに関連する具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:50:20.184Z"
+    },
+    {
+      "conversationId": "1763203501268-6ta48g2xb",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "金融機関との連携に関する質問は一般的なビジネス相談であり、具体的なプロジェクトの機能や特徴を示す情報が不足しているため、特定のプロジェクトに分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:50:25.027Z"
+    },
+    {
+      "conversationId": "1763203501268-x3iq7jemv",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "UIイメージの好みに関する一般的な質問で、特定のプロジェクトに関連する具体的なキーワードや文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:50:29.602Z"
+    },
+    {
+      "conversationId": "1763203501268-px26yj8n2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.95,
+      "reason": "質問が非常に曖昧で具体的な内容が不明。「この3点」が何を指しているか特定できず、特定のプロジェクトに関連する要素が全く含まれていない。 (AI-powered)",
+      "timestamp": "2025-11-15T10:50:34.268Z"
+    },
+    {
+      "conversationId": "1763203501268-c4qnst6be",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "Webダッシュボードのプロトタイプ作成について言及されているが、具体的なプロジェクト名や特定の機能に関する詳細が不足しており、jarvis、checkie、musubiのいずれかを特定するには情報が不十分 (AI-powered)",
+      "timestamp": "2025-11-15T10:50:39.365Z"
+    },
+    {
+      "conversationId": "1763203501268-we1cmx667",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "会話内容が提供されていないため、判定することができません (AI-powered)",
+      "timestamp": "2025-11-15T10:50:45.212Z"
+    },
+    {
+      "conversationId": "1763203501268-2wqf7ypr9",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「ご回答お待ちしています」という一般的な待機メッセージのみで、特定のプロジェクトに関連する具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:50:49.678Z"
+    },
+    {
+      "conversationId": "1763203501268-pwa1lhuq6",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "家計管理や資産管理に関する話題と推測されるが、jarvis、checkie、musubiのいずれにも明確に該当せず、プロジェクト名の言及もないため (AI-powered)",
+      "timestamp": "2025-11-15T10:50:54.627Z"
+    },
+    {
+      "conversationId": "1763203501268-zodggvwvl",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:50:58.403Z"
+    },
+    {
+      "conversationId": "1763203501268-qyc1rel8m",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が単純な指示のみで、特定のプロジェクトに関連する技術的内容や固有の要素が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:02.729Z"
+    },
+    {
+      "conversationId": "1763203501268-7h74zkc46",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が日時情報のみでプロジェクト判定に必要な具体的な内容が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:06.922Z"
+    },
+    {
+      "conversationId": "1763203501268-a1miyjhn2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "技術スタックやプラットフォームに関する一般的な質問で、特定のプロジェクト（jarvis、checkie、musubi）に関連する具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:11.479Z"
+    },
+    {
+      "conversationId": "1763203501268-5ysafdy7r",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "技術スタックに関する一般的な質問で、特定のプロジェクトに関連する文脈や固有名詞が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:15.578Z"
+    },
+    {
+      "conversationId": "1763203501268-gfz8xl322",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "金融機関との連携に関する質問ですが、提供されたプロジェクト候補（jarvis、checkie、musubi）のいずれとも明確な関連性を判断できないため、uncategorizedに分類しました。 (AI-powered)",
+      "timestamp": "2025-11-15T10:51:20.452Z"
+    },
+    {
+      "conversationId": "1763203501268-p1gyagesp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話の断片のみで、プロジェクト固有の技術用語やキーワードが含まれていないため、特定のプロジェクトに分類できない (AI-powered)",
+      "timestamp": "2025-11-15T10:51:25.133Z"
+    },
+    {
+      "conversationId": "1763203501268-mqxl4z5uk",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.8,
+      "reason": "UIイメージに関する一般的な質問で、特定のプロジェクトを示す具体的な情報が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:29.278Z"
+    },
+    {
+      "conversationId": "1763203501268-0t19girg2",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.7,
+      "reason": "財務アドバイザーのキャラクターやUIデザインについて言及されているが、既存の3つのプロジェクト（jarvis、checkie、musubi）のいずれかを明確に特定できる情報が不足している。新しいプロジェクトの可能性もある。 (AI-powered)",
+      "timestamp": "2025-11-15T10:51:34.008Z"
+    },
+    {
+      "conversationId": "1763203501268-wx27wds8x",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトの判定ができません (AI-powered)",
+      "timestamp": "2025-11-15T10:51:37.781Z"
+    },
+    {
+      "conversationId": "1763203501268-mixmfdtx5",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトを判定することができません (AI-powered)",
+      "timestamp": "2025-11-15T10:51:42.030Z"
+    },
+    {
+      "conversationId": "1763203501268-bmkqv3t82",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が日時情報のみで、特定のプロジェクトに関連する具体的な内容や文脈が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:46.272Z"
+    },
+    {
+      "conversationId": "1763203501268-9c0hp5r02",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が「ご質問ありがとうございます！」という一般的な挨拶のみで、特定のプロジェクトに関連する具体的な情報や技術的な内容が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:50.324Z"
+    },
+    {
+      "conversationId": "1763203501268-9kb45hbu5",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.95,
+      "reason": "会話内容が「それぞれ丁寧にご説明します」という一般的な挨拶文のみで、特定のプロジェクトに関連する具体的な情報や専門用語が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:51:54.728Z"
+    },
+    {
+      "conversationId": "1763203501268-k2mvsxz5v",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 1,
+      "reason": "会話内容が提供されていないため、プロジェクトを特定できません (AI-powered)",
+      "timestamp": "2025-11-15T10:51:58.463Z"
+    },
+    {
+      "conversationId": "1763203501268-lfbycc5ld",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "技術スタックに関する一般的な質問で、特定のプロジェクトに関連する内容が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:02.659Z"
+    },
+    {
+      "conversationId": "1763203501268-imlaxr2gp",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "技術スタックの一般的な説明であり、特定のプロジェクトに関連する内容ではないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:06.975Z"
+    },
+    {
+      "conversationId": "1763203501268-7j7mgxucn",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "「例えばWebサービスなら」という断片的な文章のみで、具体的なプロジェクトを特定できる情報が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:11.525Z"
+    },
+    {
+      "conversationId": "1763203501268-jyffe71fy",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "フロントエンド技術の一般的な説明のみで、特定のプロジェクトを示す具体的な文脈や固有の情報が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:15.944Z"
+    },
+    {
+      "conversationId": "1763203501268-u73xcers1",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "バックエンド技術の一般的な説明のみで、特定のプロジェクトに関連する具体的な文脈や要件が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:20.293Z"
+    },
+    {
+      "conversationId": "1763203501268-80xrfbbuq",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "データベースの種類を列挙しているだけで、特定のプロジェクトに関連する具体的な文脈や要件が含まれていないため (AI-powered)",
+      "timestamp": "2025-11-15T10:52:24.962Z"
+    },
+    {
+      "conversationId": "1763203501268-5amfeactw",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0.9,
+      "reason": "会話内容が断片的で、技術選択に関する一般的な言及のみ。特定のプロジェクトに関連する具体的な情報や文脈が不足しており、どのプロジェクトにも明確に分類できない。 (AI-powered)",
+      "timestamp": "2025-11-15T10:52:29.859Z"
+    },
+    {
+      "conversationId": "1763203501268-c89ttfklj",
+      "originalProject": "uncategorized",
+      "predictedProject": "uncategorized",
+      "confidence": 0,
+      "reason": "No matching keywords found (AI-powered)",
+      "timestamp": "2025-11-15T10:52:36.137Z"
+    }
+  ],
+  "summary": {
+    "byProject": {
+      "uncategorized": 89,
+      "jarvis": 1,
+      "checkie": 10
+    },
+    "avgConfidence": 0.8030000000000003,
+    "lowConfidenceCount": 9
+  }
+}

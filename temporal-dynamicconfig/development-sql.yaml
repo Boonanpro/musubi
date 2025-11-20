@@ -1,0 +1,24 @@
+# Temporal Dynamic Config for Development
+# Enables longer workflow execution and better debugging
+
+# Allow workflows to run for days/weeks
+system.forceSearchAttributesCacheRefreshOnRead:
+  - value: true
+    constraints: {}
+
+# Better visibility for debugging
+system.enableActivityLocalDispatchByDefault:
+  - value: true
+    constraints: {}
+
+# Increase history size for long-running workflows
+history.maxAutoResetPoints:
+  - value: 50
+    constraints: {}
+
+# Allow more concurrent activities
+limit.maxConcurrentActivityExecutionSize:
+  - value: 1000
+    constraints: {}
+
+

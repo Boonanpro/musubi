@@ -1,0 +1,374 @@
+{
+  "name": "Musubi - 提案生成",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "musubi-suggestion-trigger",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "id": "webhook-trigger",
+      "name": "Webhook受信",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1.1,
+      "position": [250, 300],
+      "webhookId": "musubi-suggestion-trigger"
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM requirements WHERE status = 'pending' ORDER BY importance DESC, confidence DESC LIMIT 20"
+      },
+      "id": "get-pending-requirements",
+      "name": "未処理の要望を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT capability, success_rate FROM capability_profile ORDER BY success_rate ASC LIMIT 10"
+      },
+      "id": "get-weakness-report",
+      "name": "弱点レポート取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [450, 450],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// カテゴリごとにグループ化\nconst requirements = $('get-pending-requirements').all();\nconst categoryMap = new Map();\n\nfor (const item of requirements) {\n  const req = item.json;\n  const category = req.category || 'other';\n  \n  if (!categoryMap.has(category)) {\n    categoryMap.set(category, req);\n  }\n}\n\n// 上位10カテゴリを取得\nconst uniqueRequirements = Array.from(categoryMap.values()).slice(0, 10);\n\nreturn uniqueRequirements.map(r => ({ json: r }));"
+      },
+      "id": "group-by-category",
+      "name": "カテゴリごとにグループ化",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [650, 300]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.anthropic.com/v1/messages",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "anthropic-version",
+              "value": "2023-06-01"
+            }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            {
+              "name": "model",
+              "value": "claude-sonnet-4-20250514"
+            },
+            {
+              "name": "max_tokens",
+              "value": 4096
+            },
+            {
+              "name": "system",
+              "value": "あなたはMusubiというAI開発支援システムです。自分自身の成長のための提案を生成してください。"
+            },
+            {
+              "name": "messages",
+              "value": "=[{\"role\": \"user\", \"content\": \"以下のデータを分析し、自分自身の成長のための提案を生成してください。\\n\\n【要望】\\n\" + $json.content + \"\\n\\n【能力評価結果】\\n- 実装可能: \" + ($json.can_implement ? 'はい' : 'いいえ') + \"\\n- 確信度: \" + ($json.evaluation_confidence * 100).toFixed(0) + \"%\\n- 不足している能力: \" + ($json.missing_capabilities ? JSON.parse($json.missing_capabilities).join('、') : 'なし') + \"\\n- 不足している依存関係: \" + ($json.required_dependencies ? JSON.parse($json.required_dependencies).join('、') : 'なし') + \"\\n\\n【弱点分析】\\n\" + $('get-weakness-report').all().map(w => `- ${w.json.capability}: 成功率${(w.json.success_rate * 100).toFixed(0)}%`).join('\\n') + \"\\n\\n以下の形式でJSON出力してください：\\n{\\n  \\\"title\\\": \\\"提案のタイトル（20文字以内、具体的に）\\\",\\n  \\\"growthEffect\\\": \\\"この提案を実行すると、Musubiがどう成長するか（100文字程度、具体的に）\\\",\\n  \\\"userAction\\\": \\\"ユーザーに何をしてほしいか（箇条書き、3〜5項目、具体的に。各項目を・で区切る）\\\"\\n}\\n\\n重要な指示：\\n1. 自分（Musubi）の弱点を踏まえて提案すること\\n2. 過去の失敗パターンを避けるための具体的なアクションを求めること\\n3. テンプレート的な文章ではなく、このデータに基づいた固有の提案をすること\\n\\nJSONのみを出力してください。\"}]"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ai-generate-suggestion",
+      "name": "AI: 提案生成",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [850, 300],
+      "credentials": {
+        "httpHeaderAuth": {
+          "id": "ANTHROPIC_CREDENTIAL_ID",
+          "name": "Anthropic API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// AI応答からJSONを抽出\nconst response = $input.item.json;\nconst content = response.content[0].text;\n\nconst jsonMatch = content.match(/\\{[\\s\\S]*\\}/);\nif (!jsonMatch) {\n  throw new Error('Failed to parse suggestion');\n}\n\nconst suggestion = JSON.parse(jsonMatch[0]);\n\n// 元の要望データと結合\nconst requirement = $('group-by-category').item.json;\n\nreturn [{\n  json: {\n    requirement_id: requirement.id,\n    title: suggestion.title,\n    growth_effect: suggestion.growthEffect,\n    user_action: suggestion.userAction,\n    category: requirement.category,\n    priority: requirement.importance * requirement.confidence,\n    status: 'waiting',\n    created_at: new Date().toISOString()\n  }\n}];"
+      },
+      "id": "parse-suggestion",
+      "name": "提案を解析",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1050, 300]
+    },
+    {
+      "parameters": {
+        "operation": "insert",
+        "tableId": "suggestions",
+        "columnsUi": {
+          "columnValues": [
+            {
+              "column": "requirement_id",
+              "value": "={{ $json.requirement_id }}"
+            },
+            {
+              "column": "title",
+              "value": "={{ $json.title }}"
+            },
+            {
+              "column": "growth_effect",
+              "value": "={{ $json.growth_effect }}"
+            },
+            {
+              "column": "user_action",
+              "value": "={{ $json.user_action }}"
+            },
+            {
+              "column": "category",
+              "value": "={{ $json.category }}"
+            },
+            {
+              "column": "priority",
+              "value": "={{ $json.priority }}"
+            },
+            {
+              "column": "status",
+              "value": "={{ $json.status }}"
+            },
+            {
+              "column": "created_at",
+              "value": "={{ $json.created_at }}"
+            }
+          ]
+        }
+      },
+      "id": "save-suggestion",
+      "name": "提案を保存",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1250, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE requirements SET status = 'processed' WHERE id = {{ $('group-by-category').item.json.id }}"
+      },
+      "id": "update-requirement-status",
+      "name": "要望ステータス更新",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1450, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "SELECT * FROM suggestions ORDER BY priority DESC, created_at ASC"
+      },
+      "id": "get-all-suggestions",
+      "name": "全提案を取得",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [1650, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "// 優先順位を再計算して上位4件を「表示」、残りを「待機」に\nconst allSuggestions = $input.all();\n\nconst updates = allSuggestions.map((item, index) => {\n  const suggestion = item.json;\n  const newStatus = index < 4 ? 'displayed' : 'waiting';\n  \n  return {\n    json: {\n      id: suggestion.id,\n      status: newStatus,\n      display_order: index + 1\n    }\n  };\n});\n\nreturn updates;"
+      },
+      "id": "calculate-display-order",
+      "name": "表示順序を計算",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [1850, 300]
+    },
+    {
+      "parameters": {
+        "operation": "executeQuery",
+        "query": "UPDATE suggestions SET status = '{{ $json.status }}', display_order = {{ $json.display_order }} WHERE id = {{ $json.id }}"
+      },
+      "id": "update-suggestion-status",
+      "name": "提案ステータス更新",
+      "type": "n8n-nodes-base.supabase",
+      "typeVersion": 1,
+      "position": [2050, 300],
+      "credentials": {
+        "supabaseApi": {
+          "id": "SUPABASE_CREDENTIAL_ID",
+          "name": "Supabase - Musubi"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{ { \"success\": true, \"suggestionsGenerated\": $('group-by-category').all().length, \"displayed\": 4 } }}"
+      },
+      "id": "respond-success",
+      "name": "成功レスポンス",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [2250, 300]
+    }
+  ],
+  "connections": {
+    "webhook-trigger": {
+      "main": [
+        [
+          {
+            "node": "get-pending-requirements",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "get-weakness-report",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-pending-requirements": {
+      "main": [
+        [
+          {
+            "node": "group-by-category",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "group-by-category": {
+      "main": [
+        [
+          {
+            "node": "ai-generate-suggestion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "ai-generate-suggestion": {
+      "main": [
+        [
+          {
+            "node": "parse-suggestion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "parse-suggestion": {
+      "main": [
+        [
+          {
+            "node": "save-suggestion",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "save-suggestion": {
+      "main": [
+        [
+          {
+            "node": "update-requirement-status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update-requirement-status": {
+      "main": [
+        [
+          {
+            "node": "get-all-suggestions",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "get-all-suggestions": {
+      "main": [
+        [
+          {
+            "node": "calculate-display-order",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "calculate-display-order": {
+      "main": [
+        [
+          {
+            "node": "update-suggestion-status",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "update-suggestion-status": {
+      "main": [
+        [
+          {
+            "node": "respond-success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2025-01-17T00:00:00.000Z",
+  "versionId": "1"
+}
+

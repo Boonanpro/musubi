@@ -1,0 +1,254 @@
+{
+  "projects": {
+    "miyazaki": {
+      "id": "miyazaki",
+      "name": "Miyazaki AI",
+      "description": "画面収録映像生成AI",
+      "createdAt": "2025-11-14T10:10:11.507Z",
+      "updatedAt": "2025-11-14T10:10:11.507Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "video",
+        "ai"
+      ],
+      "componentName": "Miyazaki"
+    },
+    "3fe42be2-5eab-4409-ad0c-336431378134": {
+      "id": "3fe42be2-5eab-4409-ad0c-336431378134",
+      "name": "YoshikawaSpecialBodyworks",
+      "description": "鳥取県米子市にある有限会社吉川特装の会社HPを作ってください。最大の目的は集客です。ウェブ公開までしてください。",
+      "createdAt": "2025-11-14T10:15:43.181Z",
+      "updatedAt": "2025-11-14T10:18:39.066Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "developing"
+      ],
+      "componentName": "YoshikawaSpecialBodyworks"
+    },
+    "daf1738e-0620-4deb-9e02-96e68b312bd2": {
+      "id": "daf1738e-0620-4deb-9e02-96e68b312bd2",
+      "name": "AiConnect",
+      "description": "メールがLINEを過去のものにしたように、LINEを過去にするようなスマホで使えるAIネイティブなコミュニケーションアプリを作ってください。LINEの地位やユーザーを奪いに行きます。",
+      "createdAt": "2025-11-14T10:30:10.597Z",
+      "updatedAt": "2025-11-14T10:49:31.420Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "developing"
+      ],
+      "componentName": "AiConnect"
+    },
+    "b805329d-4b81-45ac-8819-977a407059e3": {
+      "id": "b805329d-4b81-45ac-8819-977a407059e3",
+      "name": "YoshikawaCompanyWebsite",
+      "description": "鳥取県米子市にある有限会社吉川特装の会社HPを作ってください。最大の目的は集客です。ウェブ公開までしてください。",
+      "createdAt": "2025-11-14T10:57:29.326Z",
+      "updatedAt": "2025-11-14T10:59:22.677Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "developing"
+      ],
+      "componentName": "YoshikawaCompanyWebsite"
+    },
+    "04c886b9-ec74-4252-836f-e1ed0d0dae56": {
+      "id": "04c886b9-ec74-4252-836f-e1ed0d0dae56",
+      "name": "MiyazakiAI",
+      "description": "テキストではなくペンタブ（マウス）での加筆を含めた画面収録で映像生成が出来るミヤザキというAIを作ってください（loomで撮影した動画を認識するようなイメージです）。これを自社映像生成AIとして映画やYouTube、会社の映像制作に使いたいです。\n",
+      "createdAt": "2025-11-14T13:08:23.948Z",
+      "updatedAt": "2025-11-14T13:22:49.528Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "developing"
+      ],
+      "componentName": "MiyazakiAI"
+    },
+    "2396fc8f-317d-483e-a241-42d93be2be64": {
+      "id": "2396fc8f-317d-483e-a241-42d93be2be64",
+      "name": "NexTalk",
+      "description": "LINEがメールを過去のものにしたように、LINEを過去の連絡手段とするようなスマホで使えるAIネイティブなこみにゅケーションアプリを作ってください。このツールで現在のLINEの地位とユーザーを奪いに行きます。",
+      "createdAt": "2025-11-14T13:46:32.048Z",
+      "updatedAt": "2025-11-14T14:04:18.559Z",
+      "version": "1.0.0",
+      "status": "active",
+      "tags": [
+        "developing"
+      ],
+      "componentName": "NexTalk"
+    }
+  },
+  "versions": {
+    "miyazaki": [
+      {
+        "id": "52d6909d-ec04-423e-8d2b-c11806714802",
+        "projectId": "miyazaki",
+        "version": "1.0.0",
+        "description": "初期バージョン - 画面収録とキャンバス加筆機能",
+        "createdAt": "2025-11-14T10:10:11.507Z",
+        "componentPath": "src/components/Miyazaki.tsx",
+        "evaluationIds": [
+          "318dca78-de8e-4086-954f-9d1da96985a8",
+          "735508e5-9ab1-4e95-bc20-032db4ba3ecc",
+          "17b975fd-998a-4de9-abe1-a226d9336869"
+        ]
+      }
+    ],
+    "3fe42be2-5eab-4409-ad0c-336431378134": [
+      {
+        "id": "071c8a76-0346-4d11-99d5-d23aceb1a450",
+        "projectId": "3fe42be2-5eab-4409-ad0c-336431378134",
+        "version": "1.0.0",
+        "description": "初期バージョン",
+        "createdAt": "2025-11-14T10:15:43.181Z",
+        "componentPath": "src/components/YoshikawaSpecialBodyworks.tsx",
+        "evaluationIds": []
+      }
+    ],
+    "daf1738e-0620-4deb-9e02-96e68b312bd2": [
+      {
+        "id": "5f6ad5df-a279-43fa-9adf-bbca4532468b",
+        "projectId": "daf1738e-0620-4deb-9e02-96e68b312bd2",
+        "version": "1.0.0",
+        "description": "初期バージョン",
+        "createdAt": "2025-11-14T10:30:10.597Z",
+        "componentPath": "src/components/AiConnect.tsx",
+        "evaluationIds": [
+          "9406533c-5ff1-4b69-a92a-74270f81d4dc"
+        ]
+      }
+    ],
+    "b805329d-4b81-45ac-8819-977a407059e3": [
+      {
+        "id": "e8b987b5-252e-423d-adab-c6f1ce3a2cc3",
+        "projectId": "b805329d-4b81-45ac-8819-977a407059e3",
+        "version": "1.0.0",
+        "description": "初期バージョン",
+        "createdAt": "2025-11-14T10:57:29.326Z",
+        "componentPath": "src/components/YoshikawaCompanyWebsite.tsx",
+        "evaluationIds": [
+          "5616ea03-fa8b-4323-bafb-994bbf65abad",
+          "fc162d79-b098-493d-aa6c-9b22b342e414",
+          "6c2ff4a6-52d7-40a1-b682-941575890fe5",
+          "e48c371e-ffba-4331-9019-f87bd1695587"
+        ]
+      }
+    ],
+    "04c886b9-ec74-4252-836f-e1ed0d0dae56": [
+      {
+        "id": "9b5f3177-f729-49a7-832c-a7e982d7aee5",
+        "projectId": "04c886b9-ec74-4252-836f-e1ed0d0dae56",
+        "version": "1.0.0",
+        "description": "初期バージョン",
+        "createdAt": "2025-11-14T13:08:23.948Z",
+        "componentPath": "src/components/MiyazakiAI.tsx",
+        "evaluationIds": []
+      }
+    ],
+    "2396fc8f-317d-483e-a241-42d93be2be64": [
+      {
+        "id": "a227038b-9d6b-470a-9d78-1b52f086b12f",
+        "projectId": "2396fc8f-317d-483e-a241-42d93be2be64",
+        "version": "1.0.0",
+        "description": "初期バージョン",
+        "createdAt": "2025-11-14T13:46:32.048Z",
+        "componentPath": "src/components/NexTalk.tsx",
+        "evaluationIds": []
+      }
+    ]
+  },
+  "evaluations": {
+    "3fe42be2-5eab-4409-ad0c-336431378134": [],
+    "daf1738e-0620-4deb-9e02-96e68b312bd2": [
+      {
+        "id": "9406533c-5ff1-4b69-a92a-74270f81d4dc",
+        "projectId": "daf1738e-0620-4deb-9e02-96e68b312bd2",
+        "versionId": "5f6ad5df-a279-43fa-9adf-bbca4532468b",
+        "score": 0,
+        "comments": "何もプレビューに表示されてないよ？プログラミングした？",
+        "timestamp": "2025-11-15T09:33:23.921Z",
+        "componentName": "AiConnect",
+        "filePath": "src/components/AiConnect.tsx"
+      }
+    ],
+    "b805329d-4b81-45ac-8819-977a407059e3": [
+      {
+        "id": "5616ea03-fa8b-4323-bafb-994bbf65abad",
+        "projectId": "b805329d-4b81-45ac-8819-977a407059e3",
+        "versionId": "e8b987b5-252e-423d-adab-c6f1ce3a2cc3",
+        "score": 30,
+        "comments": "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "timestamp": "2025-11-15T09:21:28.683Z",
+        "componentName": "YoshikawaCompanyWebsite",
+        "filePath": "src/components/YoshikawaCompanyWebsite.tsx"
+      },
+      {
+        "id": "fc162d79-b098-493d-aa6c-9b22b342e414",
+        "projectId": "b805329d-4b81-45ac-8819-977a407059e3",
+        "versionId": "e8b987b5-252e-423d-adab-c6f1ce3a2cc3",
+        "score": 30,
+        "comments": "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "timestamp": "2025-11-15T09:21:57.674Z",
+        "componentName": "YoshikawaCompanyWebsite",
+        "filePath": "src/components/YoshikawaCompanyWebsite.tsx"
+      },
+      {
+        "id": "6c2ff4a6-52d7-40a1-b682-941575890fe5",
+        "projectId": "b805329d-4b81-45ac-8819-977a407059e3",
+        "versionId": "e8b987b5-252e-423d-adab-c6f1ce3a2cc3",
+        "score": 30,
+        "comments": "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "timestamp": "2025-11-15T09:22:20.856Z",
+        "componentName": "YoshikawaCompanyWebsite",
+        "filePath": "src/components/YoshikawaCompanyWebsite.tsx"
+      },
+      {
+        "id": "e48c371e-ffba-4331-9019-f87bd1695587",
+        "projectId": "b805329d-4b81-45ac-8819-977a407059e3",
+        "versionId": "e8b987b5-252e-423d-adab-c6f1ce3a2cc3",
+        "score": 20,
+        "comments": "特装車関連の事業をやってることが分かるHPなってたのは良かった。\nでも事業内容や特徴が捉えられてないね。吉川特装は実在する企業で「新明和工業の特装車の認定修理工場」だ。業界内で多くのシェアを持つ新明和の特装車だが全国どこにでも修理工場がある訳ではない。だから修理が必要になった場合、近くの認定修理工場に依頼すればしっかり治してもらえる。吉川特装は中国地方で唯一それを担う認定修理工場なんだ。\nこういう特徴や仕事内容をまずはウェブ検索等で隅々まで調べる必要があるし、検索でヒットしなかった場合はユーザー（俺）に聞き返す必要があるね。\nあとはデザインクオリティも全然素人レベルだから話にならない。\nhttps://www.shinmaywa.co.jp/　例えばこれが新明和のHPだ。デザインや方向性を必ずしも統一する必要は無いけどクオリティはこのレベルのものを一発で作ってほしい。",
+        "timestamp": "2025-11-15T09:26:28.749Z",
+        "componentName": "YoshikawaCompanyWebsite",
+        "filePath": "src/components/YoshikawaCompanyWebsite.tsx"
+      }
+    ],
+    "04c886b9-ec74-4252-836f-e1ed0d0dae56": [],
+    "2396fc8f-317d-483e-a241-42d93be2be64": [],
+    "miyazaki": [
+      {
+        "id": "318dca78-de8e-4086-954f-9d1da96985a8",
+        "projectId": "miyazaki",
+        "versionId": "52d6909d-ec04-423e-8d2b-c11806714802",
+        "score": 20,
+        "comments": "＃良かった点\n本当は映像生成できない時点で0点だけど加筆エリアでちゃんと書けたり加筆をクリア機能でちゃんと消せるのには感動したから20点あげる。\n\n＃ダメな点\n・映像生成できないこと。そもそも収録開始を押しても「画面収録の開始に失敗しました: Failed to execute 'getDisplayMedia' on 'MediaDevices': Access to the feature \"display-capture\" is disallowed by permissions policy.」と表示されて録画できない。\n・「使い方」に書いてある以下のような文章からこのツールの目的を全く理解できてないと感じた。\n「💡 使い方\n「収録開始」で画面選択\n上のキャンバスでマウス/ペンタブで加筆\n「収録停止」で終了\nプレビューを確認してダウンロード」なぜならこのツールは収録した映像をプロンプトとして映像を生成するためのものだから。この説明ではこのツールは画面を収録しそれをダウンロードするためのもののように見えるし、実際に映像生成機能が無いので、どんなツールを作ってほしいか意味わかってないように感じた。",
+        "timestamp": "2025-11-14T15:49:52.488Z",
+        "componentName": "Miyazaki",
+        "filePath": "src/components/Miyazaki.tsx"
+      },
+      {
+        "id": "735508e5-9ab1-4e95-bc20-032db4ba3ecc",
+        "projectId": "miyazaki",
+        "versionId": "52d6909d-ec04-423e-8d2b-c11806714802",
+        "score": 50,
+        "comments": "テスト評価",
+        "timestamp": "2025-11-15T08:12:08.440Z",
+        "componentName": "Miyazaki",
+        "filePath": "src/components/Miyazaki.tsx"
+      },
+      {
+        "id": "17b975fd-998a-4de9-abe1-a226d9336869",
+        "projectId": "miyazaki",
+        "versionId": "52d6909d-ec04-423e-8d2b-c11806714802",
+        "score": 71,
+        "comments": "テスト評価",
+        "timestamp": "2025-11-15T08:15:46.316Z",
+        "componentName": "Miyazaki",
+        "filePath": "src/components/Miyazaki.tsx"
+      }
+    ]
+  },
+  "currentProjectId": "miyazaki"
+}

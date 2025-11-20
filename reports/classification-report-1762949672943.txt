@@ -1,0 +1,24 @@
+MUSUBI - Classification Report
+============================================================
+
+Generated: 2025-11-12T12:14:32.943Z
+
+SUMMARY
+------------------------------------------------------------
+Total Processed: 26028
+Classified: 2379 (9.14%)
+Unclassified: 23649 (90.86%)
+Average Confidence: 2.10%
+Low Confidence (<50%): 26023
+
+DISTRIBUTION BY PROJECT
+------------------------------------------------------------
+uncategorized: 23649 (90.86%)
+jarvis: 1323 (5.08%)
+checkie: 1037 (3.98%)
+musubi: 19 (0.07%)
+
+SUCCESS CRITERIA
+------------------------------------------------------------
+Accuracy ≥90%: FAIL (9.14%)
+Error Rate ≤5%: FAIL (90.86%)
